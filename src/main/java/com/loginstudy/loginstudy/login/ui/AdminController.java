@@ -1,4 +1,4 @@
-package com.loginstudy.loginstudy.login.controller;
+package com.loginstudy.loginstudy.login.ui;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
