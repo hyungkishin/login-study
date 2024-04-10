@@ -22,13 +22,12 @@ public class JoinService {
         Boolean isExist = userRepository.existsByUsername(username);
 
         if (isExist) {
-            // TODO make checked Exception
-            return;
+            // TODO Make Common checked Exception + ENUM
+            throw new IllegalArgumentException("이미 존재하는 User.");
         }
 
         entity.updateEncodePassword(bCryptPasswordEncoder.encode(password));
 
-        System.out.println("isExist = " + entity.getPassword());
         userRepository.save(entity);
     }
 

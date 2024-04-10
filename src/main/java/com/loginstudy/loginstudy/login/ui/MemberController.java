@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/login")
+//@RequestMapping("/login")
 public class MemberController {
 
     private final JoinService joinService;
