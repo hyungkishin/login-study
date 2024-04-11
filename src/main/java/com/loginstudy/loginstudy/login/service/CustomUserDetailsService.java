@@ -4,20 +4,23 @@ import com.loginstudy.loginstudy.login.domain.UserEntity;
 import com.loginstudy.loginstudy.login.domain.dto.CustomUserDetails;
 import com.loginstudy.loginstudy.login.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        //DB에서 조회
+        // DB 에서 조회
         UserEntity userData = userRepository.findByUsername(username);
 
         if (userData != null) {

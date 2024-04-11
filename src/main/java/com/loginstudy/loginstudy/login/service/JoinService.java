@@ -5,15 +5,18 @@ import com.loginstudy.loginstudy.login.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
+@Transactional(readOnly = true)
 public class JoinService {
 
     private final UserRepository userRepository;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Transactional
     public void joinProcess(UserEntity entity) {
 
         String username = entity.getUsername();
